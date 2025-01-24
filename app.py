@@ -17,6 +17,7 @@ def obter_resposta(texto: str) -> str:
         'qual é a tua cor favorita?': 'Minha cor favorita é azul!',
         'qual é o teu filme favorito?': 'Gosto muito de "Matrix"!',
         'qual é o teu livro favorito?': 'Adoro Os Lusíadas!',
+        'gosta de aprender?': 'Sim, adoro aprender coisas novas!',
     }
 
     for chave, resposta in respostas.items():
