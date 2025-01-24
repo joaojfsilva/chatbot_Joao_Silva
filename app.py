@@ -14,6 +14,7 @@ def obter_resposta(texto: str) -> str:
         'historia de portugal': 'Portugal tem uma rica história...',
         'horas': lambda: f'São: {datetime.now():%H:%M} horas',
         'data': lambda: f'Hoje é dia: {datetime.now():%d-%m-%Y}',
+        'qual é a tua cor favorita?': 'Minha cor favorita é azul!',
     }
 
     for chave, resposta in respostas.items():
