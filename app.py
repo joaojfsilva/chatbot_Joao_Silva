@@ -18,6 +18,7 @@ def obter_resposta(texto: str) -> str:
         'qual é o teu filme favorito?': 'Gosto muito de "Matrix"!',
         'qual é o teu livro favorito?': 'Adoro Os Lusíadas!',
         'gosta de aprender?': 'Sim, adoro aprender coisas novas!',
+        'quem achas deste curso?': 'Fantastico, estou a adorar.'
     }
 
     for chave, resposta in respostas.items():
