@@ -4,23 +4,6 @@ from datetime import datetime
 def obter_resposta(texto: str) -> str:
     comando: str = texto.lower()
 
-    """
-    if comando in ('olá', 'boa tarde', 'bom dia'):
-        return 'Olá tudo bem!'
-    if comando == 'como estás':
-        return 'Estou bem, obrigado!'
-    if comando == 'como te chamas?':
-        return 'O meu nome é: Bot :)'
-    if comando == 'tempo':
-        return 'Está um dia de sol!'
-    if comando in ('bye', 'adeus', 'tchau'):
-        return 'Gostei de falar contigo! Até breve...'
-    if 'horas' in comando:
-        return f'São: {datetime.now():%H:%M} horas'
-    if 'data' in comando:
-        return f'Hoje é dia: {datetime.now():%d-%m-%Y}'
-
-    """
     respostas = {
         ('olá', 'boa tarde', 'bom dia'): 'Olá tudo bem!',
         'como estás': 'Estou bem, obrigado!',
@@ -29,6 +12,8 @@ def obter_resposta(texto: str) -> str:
         'tempo': 'Está um dia de sol!',
         ('bye', 'adeus', 'tchau'): 'Gostei de falar contigo! Até breve...',
         'historia de portugal': 'Portugal tem uma rica história...',
+        'horas': lambda: f'São: {datetime.now():%H:%M} horas',
+        'data': lambda: f'Hoje é dia: {datetime.now():%d-%m-%Y}',
     }
 
     for chave, resposta in respostas.items():
@@ -36,13 +21,9 @@ def obter_resposta(texto: str) -> str:
             if comando in chave:
                 return resposta
         elif chave in comando:
+            if callable(resposta):
+                return resposta()
             return resposta
-
-    if 'horas' in comando:
-        return f'São: {datetime.now():%H:%M} horas'
-
-    if 'data' in comando:
-        return f'Hoje é dia: {datetime.now():%d-%m-%Y}'
 
     return f'Desculpa, não entendi a questão! {texto}'
 
