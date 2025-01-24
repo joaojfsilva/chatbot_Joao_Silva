@@ -15,6 +15,7 @@ def obter_resposta(texto: str) -> str:
         'horas': lambda: f'São: {datetime.now():%H:%M} horas',
         'data': lambda: f'Hoje é dia: {datetime.now():%d-%m-%Y}',
         'qual é a tua cor favorita?': 'Minha cor favorita é azul!',
+        'qual é o teu filme favorito?': 'Gosto muito de "Matrix"!',
     }
 
     for chave, resposta in respostas.items():
